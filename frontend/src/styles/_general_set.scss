@@ -1,0 +1,555 @@
+@import './fonts';
+@import './mixins';
+
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto';
+}
+  
+html {
+	--bg: #efefef;
+	--fg: #1e1e1e;
+	background-color: var(--bg);
+	color: var(--fg);
+	font-size: calc(0.9em + 0.5vw);
+	line-height: 1.3;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .15s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.loading-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.loading-container--side {
+	width: 80%;
+}
+
+.loading-container--app {
+	width: 100%;
+	height: 100vh;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+.page {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding-top: 100px;
+}
+
+main {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.container {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto mono';
+	margin: 0;
+}
+
+a,
+.link {
+	text-decoration: none;
+}
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+textarea:focus {
+	outline: none;
+}
+
+button, input {
+	font: inherit;
+	outline: none;
+}
+
+.main-btn {
+	background-color: #2d0949;
+	border: 2px solid #000;
+	color: #efefef;
+	cursor: pointer;
+	padding: 0.3em 0.75em;
+	transition: background-color .1s ease-in-out;
+	min-width: 150px;
+	max-width: 250px;
+	text-align: center;
+
+	span {
+		color: #efefef;
+	}
+
+	&:hover {
+		color: #000;
+		background-color:rgba(92, 233, 188, 1);
+
+		span {
+			color: #000;
+		}
+	}
+
+	&:disabled {
+		box-shadow: none;
+		background-color: rgba(58, 31, 79, .4);
+		color: #00000047;
+		cursor: not-allowed;
+		transform: none;
+
+		&:hover {
+			background-color: rgba(58, 31, 79, .4);
+			color: #00000047;
+	
+			span {
+				color: #00000047;
+			}
+		}
+	}
+}
+
+.main-btn--photo {
+	position: absolute;
+	left: 0;
+	bottom: -50px;
+	z-index: 10;
+}
+
+.main-btn--reverse-wallets {
+	display: flex;
+	background: #fff;
+	align-items: center;
+	color: #2d0949;
+	margin-bottom: 10px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.main-btn__btn-icon {
+	margin-right: 10px;
+}
+
+.main-btn--exit {
+	background-color: rgba(92, 233, 188, 1);
+	color: #000;
+	margin-left: 20px;
+
+	&:hover {
+		color: #fff;
+		background-color:#ee3838;
+
+		span {
+			color: #fff;
+		}
+	}
+
+	&:focus {
+		background-color:#ee3838;
+	}
+}
+
+.main-btn--reverse {
+	background-color: rgba(92, 233, 188, 1);
+	color: #000;
+
+	&:hover {
+		color: #fff;
+		background-color:#2d0949;
+
+		span {
+			color: #fff;
+		}
+	}
+
+	&:focus {
+		background-color:#2d0949;
+	}
+}
+
+.main-btn--choose {
+	margin-bottom: 20px;
+}
+
+@keyframes loader {
+	0% { transform: rotate(0deg) }
+	100% { transform: rotate(360deg) }
+}
+
+fieldset {
+	border: none;
+	padding: 2em 0;
+}
+
+input:focus {
+	box-shadow: 0 0 10em rgba(0, 0, 0, 0.02) inset;
+}
+
+li {
+	padding-bottom: 1em;
+}
+
+p {
+	margin: 0
+}
+
+.vue-notification-group {
+	width: 370px!important;
+	top: 20px!important;
+	max-width: 500px;
+}
+
+.notification-content {
+	word-break: break-all;
+}
+  
+.vue-notification-group .vue-notification {
+	padding: 10px;
+	margin: 0 5px 5px;
+	font-size: 18px;
+	color: #ffffff;
+	background: #44A4FC;
+	border-left: 5px solid #187FE7;
+	&.warn {
+		background: #ffb648;
+		border-left-color: #f48a06;
+	}
+	&.error {
+		background: #E54D42;
+		border-left-color: #B82E24;
+	}
+	&.success {
+		background: #68CD86;
+		border-left-color: #42A85F;
+	}
+}
+
+.home-text__inner__subtext {
+	font-size: 24px;
+}
+
+.form-nft {
+  display: flex;
+  margin: 20px 0;
+}
+
+.form-ntf__inputs {
+	margin: 0 10px;
+}
+
+.form-nft__input {
+  width: 100%;
+  margin-bottom: 15px;
+	background: #fff;
+	padding: 5px 10px;
+	border: 0;
+	font-size: 20px;
+
+	.form-nft__detail-page & {
+		cursor: default;
+	}
+}
+
+.form-nft__textarea {
+	min-height: 135px;
+}
+
+.form-nft__input:last-child {
+  margin-bottom: 0;
+}
+
+.effect-cards-box {
+  margin-bottom: 50px;
+}
+
+
+.form-nft-send {
+  display: flex;
+}
+
+.form-nft-send__inputs-title {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 7px;
+}
+
+.form-nft-send__inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40px;
+
+	.effect-confirm & {
+		margin-left: 0;
+	}
+}
+
+.form-nft__bottom {
+  display: flex;
+  flex-direction: column;
+
+  .main-btn {
+    margin-bottom: 20px;
+  }
+
+  .main-btn:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-nft-send__media {
+  display: block;
+  width: 230px;
+  height: 230px;
+}
+
+.link {
+	color: rgba(92, 233, 188, 1);
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.h1--effects {
+	margin-top: 40px;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 10px;
+	font-size: 20px;
+  color: #000;
+  background-color: #fff;
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select-wrap {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 36px;
+  overflow: hidden;
+	margin-bottom: 10px;
+}
+/* Arrow */
+.select-wrap::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 5px;
+	transform: translateY(-50%);
+  background-color: #fff;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select-wrap:hover::after {
+  color: #5ce9bc;
+	transform: translateY(-50%) rotate(180deg);
+}
+
+.dialog-modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+}
+
+.dialog-modal_bg {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 15;
+}
+
+.dialog-modal__inner {
+	color: #fff;
+	background: #1E1E1E;
+	min-width: 300px;
+	padding: 20px;
+	border-radius: 4px;
+	z-index: 20;
+
+	h3 {
+		margin-bottom: 20px;
+	}
+}
+
+.dialog-modal__inner__wallets {
+	display: flex;
+	flex-direction: column;
+}
+
+.effect-confirm {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: space-between;
+
+  img {
+    width: 100%;
+    height: 350px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+	@include lg-desktop {
+
+		img {
+			width: 100%;
+			height: 320px;
+		}
+	}
+
+}
+
+.effect-confirm__selected {
+  width: 40%;
+
+	.nft-cards__approve {
+		max-width: 100%;
+	}
+
+	.main-btn {
+		min-width: auto;
+		width: 100%;
+	}
+
+	@include lg-desktop {
+		width: 28%;
+	}
+}
+
+.form-nft-send__inputs--effects {
+	width: 100%;
+  margin-top: 20px;
+
+	@include lg-desktop {
+		width: 33%;
+		margin-top: 0;
+	}
+}
+
+.take-photo{
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__shot{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 76px / 2);
+    width: 76px;
+    height: 20px;
+    z-index: 11;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+
+  }
+
+  canvas{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  img{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+
+    & + span{
+      z-index: 16;
+    }
+  }
+}
+
+.form-nft__photo {
+	position: relative;
+
+	.main-btn {
+		margin-top: 10px;
+	}
+}
+
+.form-nft__photo-close {
+	position: absolute;
+	z-index: 10;
+	right: -5px;
+	top: -30px;
+	cursor: pointer;
+
+	&:hover {
+		fill: red;
+	}
+}
